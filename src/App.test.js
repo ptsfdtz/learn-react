@@ -1,3 +1,4 @@
+// app 单元测试文件
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
