@@ -48,3 +48,29 @@ React.createElement('div', [], 'hello world') // []中可以传入props
 ```
 最后，组件渲染到页面上。
 
+3. React 事件绑定
+
+类似于 HTML 事件绑定，on + 方法名 (比如 onClick) 绑定事件。
+
+一定要赋值给事件一个方法，否则不会触发。
+
+```jsx
+import './App.css'; // 导入样式文件
+import React from 'react'; // 导入 React
+
+class App extends React.Component {
+  button=(num1, num2, num3) => {// 定义事件方法
+    console.log(num1, num2, num3); // 打印参数
+  }
+    
+  render() {// 组件渲染方法
+  return (
+    <div className="App">
+       <div onClick={this.button.bind(this, 1, 2, 3)}>button</div>  // 绑定事件方法并传入参数
+    </div>
+    );
+  }
+} 
+
+export default App; // 导出组件
+```
