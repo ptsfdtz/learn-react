@@ -1,25 +1,20 @@
 import './App.css';
 import React from 'react';
-
-function App() {
-  function HelloWorld() {
-    return <div>Hello World</div>;
+import Son from './son';
+class App extends React.PureComponent {
+  state = {
+    mes: "i am App"
   }
-  class ClassHello extends React.Component {
-    render() {
-      return <div>Hello World</div>;
-    }
+  changeMes(sonmes) {
+    this.setState({
+      mes: sonmes
+    })
   }
-  let hello = HelloWorld();
-
-  return (
-    <div className="App">
-      {hello}
-      <HelloWorld />
-      <ClassHello />
+  render() {
+    return <div className="App">
+      <Son mes={this.state.mes} changeMes={this.changeMes.bind(this)}> </Son>
     </div>
-  );
+  }
 }
-
 
 export default App;
