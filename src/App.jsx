@@ -1,10 +1,11 @@
-import TestHoc from "./TestHoc";
-import Son from "./Son.js";
-let HocSon = TestHoc(Son);
+import React from 'react';
+import './App.css';
 function App() {
-  return <div>
-    <HocSon></HocSon>
-  </div>
+  return (
+    <div className="App">
+
+    </div>
+  );
 }
 
 export default App;
