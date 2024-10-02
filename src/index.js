@@ -3,12 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// 把项目中的组件渲染到index.html中
-// ReactDOM.render(<App />, document.getElementById('root'));
-
-// 根组件渲染到index.html中
-
-// reactdom 就是把一个react组件从一个真正的dom节点中渲染到另一个真正的dom节点中
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
