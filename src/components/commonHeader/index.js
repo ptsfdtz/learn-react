@@ -3,8 +3,9 @@ import "./index.css"
 import { Button, Layout, Avatar, Dropdown } from 'antd';
 import { MenuFoldOutlined } from '@ant-design/icons';
 const { Header } = Layout;
+// import { } from "react-redux"
 
-const CommonHeader = () => {
+const CommonHeader = ({ collapsed }) => {
 
     const logout = () => {
         console.log('logout')
@@ -28,6 +29,12 @@ const CommonHeader = () => {
             ),
         }
     ]
+
+    //点击展开收起按钮
+    const setCollapsed = () => {
+        console.log(collapsed)
+    };
+
     return (
         <Header className='header-container'>
             <Button
@@ -39,6 +46,7 @@ const CommonHeader = () => {
                     height: 32,
                     backgroundColor: "#fff"
                 }}
+                onClick={() => { setCollapsed() }}
             />
             <Dropdown menu={{ items }}>
                 <Avatar size={36} src={<img alt="logo" src={require('../../assets/images/user.jpg')} />} />

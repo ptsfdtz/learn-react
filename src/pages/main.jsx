@@ -2,6 +2,7 @@ import React from 'react';
 import { Layout, theme } from 'antd';
 import CommonAside from '../components/commonAside';
 import CommonHeader from '../components/commonHeader';
+import { useSelector } from 'react-redux';
 
 const { Content } = Layout;
 
@@ -10,56 +11,13 @@ const Main = () => {
     const {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
+    // 获取展开收起的状态   
+    const Collapsed = useSelector(state => state.tap.isCollapse)
     return (
         <Layout className='main-container'>
-            {/* <Sider trigger={null} collapsible collapsed={collapsed}>
-                <h3 className='app-name' style={{ margin: 0 }}>通用后台管理系统</h3>
-                <Menu
-                    theme="dark"
-                    mode="inline"
-                    defaultSelectedKeys={['1']}
-                    style={{
-                        height: '100%',
-                    }}
-                    items={[
-                        {
-                            key: '1',
-                            icon: <UserOutlined />,
-                            label: 'nav 1',
-                        },
-                        {
-                            key: '2',
-                            icon: <VideoCameraOutlined />,
-                            label: 'nav 2',
-                        },
-                        {
-                            key: '3',
-                            icon: <UploadOutlined />,
-                            label: 'nav 3',
-                        },
-                    ]}
-                />
-            </Sider> */}
-            <CommonAside />
+            <CommonAside collapsed={Collapsed} />
             <Layout>
-                {/* <Header
-                    style={{
-                        padding: 0,
-                        background: colorBgContainer,
-                    }}
-                >
-                    <Button
-                        type="text"
-                        // icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-                        // onClick={() => setCollapsed(!collapsed)}
-                        style={{
-                            fontSize: '16px',
-                            width: 64,
-                            height: 64,
-                        }}
-                    />
-                </Header> */}
-                <CommonHeader />
+                <CommonHeader collapsed={Collapsed} />
                 <Content
                     style={{
                         margin: '24px 16px',
