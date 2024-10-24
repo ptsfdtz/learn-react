@@ -1,4 +1,3 @@
-import { Header } from 'antd/es/layout/layout';
 import axios from 'axios';
 
 const baseUrl = '/api';
@@ -12,7 +11,7 @@ class HttpRequests {
     }
     getInsideConfig() {
         const config = {
-            baseUrl: this.baseUrl,
+            baseURL: this.baseUrl,
             header: {}
         }
         return config;
@@ -36,9 +35,9 @@ class HttpRequests {
         });
     }
     request(options) {
-        options = { ...this.getInsideConfig(), ...options }
         //创建axios实例
         const instance = axios.create(options);
+        options = { ...this.getInsideConfig(), ...options }
         // 实例拦截器的绑定
         this.interception(instance);
         return instance(options);

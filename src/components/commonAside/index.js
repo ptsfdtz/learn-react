@@ -2,7 +2,7 @@ import React from 'react';
 import MenuConfig from "../../config/index"
 import *as Icon from '@ant-design/icons';
 
-import { Collapse, Layout, Menu } from 'antd';
+import { Layout, Menu } from 'antd';
 const { Sider } = Layout;
 const iconToElement = (name) => React.createElement(Icon[name])
 //处理菜单的数据

@@ -17,17 +17,17 @@ const CommonHeader = ({ collapsed }) => {
         {
             key: '1',
             label: (
-                <a target="_blank" rel="noopener noreferrer">
+                <button href="#" target="_blank" rel="noopener noreferrer">
                     个人中心
-                </a>
+                </button>
             ),
         },
         {
             key: '2',
             label: (
-                <a onClick={() => logout} target="_blank" rel="noopener noreferrer">
+                <button href="#" onClick={() => logout} target="_blank" rel="noopener noreferrer">
                     退出登录
-                </a>
+                </button>
             ),
         }
     ]
