@@ -1,4 +1,5 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import { Layout, theme } from 'antd';
 import CommonAside from '../components/commonAside';
 import CommonHeader from '../components/commonHeader';
@@ -27,7 +28,7 @@ const Main = () => {
                         borderRadius: borderRadiusLG,
                     }}
                 >
-                    Content
+                    <Outlet></Outlet>
                 </Content>
             </Layout>
         </Layout>
