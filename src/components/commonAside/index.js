@@ -29,7 +29,6 @@ const items = MenuConfig.map(icon => {
 //动态获取icon
 
 const CommonAside = ({ collapsed }) => {
-    console.log(collapsed, "commonAside")
     return (
         <Sider trigger={null} collapsed={collapsed}>
             <h3 className='app-name' style={{ margin: 0 }}>{collapsed ? "后台管理" : "通用后台管理系统"}</h3>

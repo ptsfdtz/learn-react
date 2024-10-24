@@ -10,7 +10,6 @@ const { Header } = Layout;
 const CommonHeader = ({ collapsed }) => {
 
     const logout = () => {
-        console.log('logout')
     }
 
     const items = [
@@ -35,7 +34,6 @@ const CommonHeader = ({ collapsed }) => {
     const dispatch = useDispatch()
     //点击展开收起按钮
     const setCollapsed = () => {
-        console.log(collapsed)
         dispatch(collapseMenu())
     };
 

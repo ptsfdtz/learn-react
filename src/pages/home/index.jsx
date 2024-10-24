@@ -43,6 +43,7 @@ const Home = () => {
                     type: 'line',
                 })
             });
+            // console.log(xData, series);
             setEchartData({
                 order: { xData, series }
             });
@@ -84,6 +85,7 @@ const Home = () => {
                     ))}
                 </div>
                 <div>
+                    {/* 解释： 这里的MyEcharts组件是自己写的，在components/Echarts/index.js中，它接收一个chartData对象，里面包含xData和series两个属性，分别表示x轴数据和多个系列数据。 */}
                     {echartData.order && <MyEcharts chartData={echartData.order} style={{ height: '280px' }} />}
                 </div>
             </Col>

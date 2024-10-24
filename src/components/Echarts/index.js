@@ -64,6 +64,7 @@ const Echarts = ({ style, chartData, isAxisChart = true }) => {
         if (isAxisChart) {
             axisOption.xAxis.data = chartData.xData
             axisOption.series = chartData.series
+            // console.log(axisOption)
             options = axisOption
         }
         else {
@@ -71,6 +72,14 @@ const Echarts = ({ style, chartData, isAxisChart = true }) => {
             options = normalOption
         }
         echartObj.current.setOption(options)
+    }, [chartData, isAxisChart])
+    // 销毁echarts实例
+    useEffect(() => {
+        return () => {
+            if (echartObj.current) {
+                echartObj.current.dispose()
+            }
+        }
     }, [chartData, isAxisChart])
     return (
         <div style={style} ref={echartRef}></div>
