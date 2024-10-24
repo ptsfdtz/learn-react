@@ -43,4 +43,10 @@ class HttpRequests {
         return instance(options);
     }
 }
-export default new HttpRequests(baseUrl);
+
+const http = new HttpRequests(baseUrl);
+export default http;
+
+
+// 错误的写法
+// export default new HttpRequests(baseUrl);
