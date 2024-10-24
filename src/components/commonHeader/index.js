@@ -2,8 +2,10 @@ import React from 'react';
 import "./index.css"
 import { Button, Layout, Avatar, Dropdown } from 'antd';
 import { MenuFoldOutlined } from '@ant-design/icons';
+import { useDispatch } from 'react-redux';
+import { collapseMenu } from '../../store/reducers/tap'
+
 const { Header } = Layout;
-// import { } from "react-redux"
 
 const CommonHeader = ({ collapsed }) => {
 
@@ -29,10 +31,12 @@ const CommonHeader = ({ collapsed }) => {
             ),
         }
     ]
-
+    //闯将dispatch
+    const dispatch = useDispatch()
     //点击展开收起按钮
     const setCollapsed = () => {
         console.log(collapsed)
+        dispatch(collapseMenu())
     };
 
     return (
