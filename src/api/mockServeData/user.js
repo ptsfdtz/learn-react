@@ -32,7 +32,7 @@ for (let i = 0; i < count; i++) {
   )
 }
 
-export default {
+const user = {
   /**
    * 获取列表
    * 要带参数 name, page, limt; name可以不填, page,limit有默认值。
@@ -136,3 +136,5 @@ export default {
     }
   }
 }
+
+export default user
