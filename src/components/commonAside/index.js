@@ -1,7 +1,7 @@
 import React from 'react';
 import MenuConfig from "../../config/index"
 import *as Icon from '@ant-design/icons';
-
+import { useNavigate } from 'react-router-dom'
 import { Layout, Menu } from 'antd';
 const { Sider } = Layout;
 const iconToElement = (name) => React.createElement(Icon[name])
@@ -26,9 +26,16 @@ const items = MenuConfig.map(icon => {
     return child
 })
 
+
+
 //动态获取icon
 
 const CommonAside = ({ collapsed }) => {
+    const navigate = useNavigate()
+    //点击菜单跳转页面
+    const selectMenu = (e) => {
+        navigate(e.key)
+    }
     return (
         <Sider trigger={null} collapsed={collapsed}>
             <h3 className='app-name' style={{ margin: 0 }}>{collapsed ? "后台管理" : "通用后台管理系统"}</h3>
@@ -39,6 +46,7 @@ const CommonAside = ({ collapsed }) => {
                 style={{
                     height: '100%',
                 }}
+                onClick={selectMenu}
                 items={items}
             />
         </Sider>

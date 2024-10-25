@@ -78,3 +78,8 @@
 .home .num .detail .txt {
     font-size: 15px;
 }
+
+.home .graph {
+    display: flex;
+    margin-top: 20px;
+}

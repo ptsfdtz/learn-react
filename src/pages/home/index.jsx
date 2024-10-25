@@ -30,7 +30,7 @@ const Home = () => {
 
     useEffect(() => {
         getData().then(({ data }) => {
-            const { tableData, orderData } = data.data;
+            const { tableData, orderData, userData, videoData } = data.data;
             setTableData(tableData);
             const order = orderData;
             const xData = order.date;
@@ -45,7 +45,26 @@ const Home = () => {
             });
             // console.log(xData, series);
             setEchartData({
-                order: { xData, series }
+                order: { xData, series },
+                user: {
+                    xData: userData.map(item => item.date),
+                    series: [{
+                        name: '新增用户',
+                        data: userData.map(item => item.new),
+                        type: 'bar'
+                    },
+                    {
+                        name: '活跃用户',
+                        data: userData.map(item => item.active),
+                        type: 'bar'
+                    }]
+                },
+                video: {
+                    series: [{
+                        data: videoData,
+                        type: 'pie'
+                    }],
+                }
             });
         });
     }, []);
@@ -87,6 +106,10 @@ const Home = () => {
                 <div>
                     {/* 解释： 这里的MyEcharts组件是自己写的，在components/Echarts/index.js中，它接收一个chartData对象，里面包含xData和series两个属性，分别表示x轴数据和多个系列数据。 */}
                     {echartData.order && <MyEcharts chartData={echartData.order} style={{ height: '280px' }} />}
+                    <div className='graph'>
+                        {echartData.user && <MyEcharts chartData={echartData.user} style={{ height: '280px', width: '50%' }} />}
+                        {echartData.video && <MyEcharts chartData={echartData.video} isAxisChart={false} style={{ height: '260px', width: '50%' }} />}
+                    </div>
                 </div>
             </Col>
         </Row>

@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux';
 import { collapseMenu } from '../../store/reducers/tap'
 
 const { Header } = Layout;
-
 const CommonHeader = ({ collapsed }) => {
 
     const logout = () => {
@@ -16,17 +15,17 @@ const CommonHeader = ({ collapsed }) => {
         {
             key: '1',
             label: (
-                <button href="#" target="_blank" rel="noopener noreferrer">
+                <Button href="/user" target="_blank" rel="noopener noreferrer">
                     个人中心
-                </button>
+                </Button>
             ),
         },
         {
             key: '2',
             label: (
-                <button href="#" onClick={() => logout} target="_blank" rel="noopener noreferrer">
+                <Button onClick={() => logout} target="_blank" rel="noopener noreferrer">
                     退出登录
-                </button>
+                </Button>
             ),
         }
     ]
