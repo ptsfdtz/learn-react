@@ -3,6 +3,8 @@ import MenuConfig from "../../config/index"
 import *as Icon from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom'
 import { Layout, Menu } from 'antd';
+import { useDispatch } from "react-redux"
+import { seletMenuList } from '../../store/reducers/tap'
 const { Sider } = Layout;
 const iconToElement = (name) => React.createElement(Icon[name])
 //处理菜单的数据
@@ -32,10 +34,37 @@ const items = MenuConfig.map(icon => {
 
 const CommonAside = ({ collapsed }) => {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    //添加数据到store
+    const setTabList = (val) => {
+        dispatch(seletMenuList())
+    }
     //点击菜单跳转页面
     const selectMenu = (e) => {
-        navigate(e.key)
-    }
+        navigate(e.key);
+
+        let data;
+        MenuConfig.some(item => {
+            if (item.path === e.keyPath[e.keyPath.length - 1]) {
+                data = item.children?.find(child => child.path === e.key);
+                return true; // stop iteration once the item is found
+            }
+            return false;
+        });
+
+        if (data) {
+            setTabList({
+                path: data.path,
+                name: data.name,
+                label: data.label
+            });
+            navigate(e.key);
+        } else {
+            console.error("Data not found for the selected menu item");
+        }
+    };
+
     return (
         <Sider trigger={null} collapsed={collapsed}>
             <h3 className='app-name' style={{ margin: 0 }}>{collapsed ? "后台管理" : "通用后台管理系统"}</h3>

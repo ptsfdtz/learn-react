@@ -4,6 +4,7 @@ import { Layout, theme } from 'antd';
 import CommonAside from '../components/commonAside';
 import CommonHeader from '../components/commonHeader';
 import { useSelector } from 'react-redux';
+import CommonTag from '../components/commonTag';
 
 const { Content } = Layout;
 
@@ -19,6 +20,7 @@ const Main = () => {
             <CommonAside collapsed={Collapsed} />
             <Layout>
                 <CommonHeader collapsed={Collapsed} />
+                <CommonTag />
                 <Content
                     style={{
                         margin: '24px 16px',
