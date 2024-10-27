@@ -43,7 +43,7 @@ const Home = () => {
                     type: 'line',
                 })
             });
-            // console.log(xData, series);
+
             setEchartData({
                 order: { xData, series },
                 user: {

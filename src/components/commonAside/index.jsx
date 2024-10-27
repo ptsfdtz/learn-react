@@ -4,7 +4,8 @@ import *as Icon from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom'
 import { Layout, Menu } from 'antd';
 import { useDispatch } from "react-redux"
-import { seletMenuList } from '../../store/reducers/tap'
+import { selectMenuList } from '../../store/reducers/tap'
+
 const { Sider } = Layout;
 const iconToElement = (name) => React.createElement(Icon[name])
 //处理菜单的数据
@@ -38,7 +39,7 @@ const CommonAside = ({ collapsed }) => {
 
     //添加数据到store
     const setTabList = (val) => {
-        dispatch(seletMenuList())
+        dispatch(selectMenuList())
     }
     //点击菜单跳转页面
     const selectMenu = (e) => {
